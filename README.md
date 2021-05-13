@@ -1,5 +1,5 @@
 # financebot
-DiscordBot capable of various finance-related commands.
+Discord Bot capable of various finance-related commands.
 
 to use, create a .env file within the same directory
 and add the line with x's replaced with your token:
