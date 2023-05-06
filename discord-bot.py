@@ -7,8 +7,8 @@ from datetime import datetime
 import yfinance as yf
 
 load_dotenv()
-client = discord.Client()
-client = commands.Bot(command_prefix = '.', help_command=None)
+intents = discord.Intents.all()  # or whichever intents you require
+client = commands.Bot(command_prefix='.', intents=intents, help_command=None)
 
 ## written by Jovan Milicev
 
@@ -70,7 +70,7 @@ async def stock(ctx):
     embed.add_field(name="stock info [ticker]", value="Detailed info on [ticker]", inline=False)
     embed.add_field(name="stock explain [ticker]", value="Detailed business description on [ticker]", inline=False)
     embed.add_field(name="stock optionexp [ticker] [range]", value="List [range] number of option expiry dates from [ticker]", inline=False)
-    embed.add_field(name="stock option [ticker] [date]", value="Shows option chain for [ticker] on [date].", inline=False)
+    embed.add_field(name="stock option [ticker] [date]", value="Shows option chain for [ticker] on [date], date in YYYY-MM-DD.", inline=False)
     await ctx.send(embed=embed)
 
 @stock.command(name = 'price')
@@ -164,11 +164,6 @@ async def stockOptions(ctx, ticker, date):
     embed.add_field(name=""+str(link), value="Click to view chain", inline=False)
 
     await ctx.send(embed=embed)
-
-
-
-
-
 
 
 
